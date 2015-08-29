@@ -1,0 +1,14 @@
+{
+  "name": "hybird-translator",
+  "version": "1.0.0",
+  "description": "A Modular Hybird Translator",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "request": "~2.61.0"
+  }
+}
