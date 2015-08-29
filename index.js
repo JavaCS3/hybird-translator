@@ -1,5 +1,6 @@
 var translatorAdapter = require('./lib/translator-adapter.js');
-var dummyTranslator = require('./lib/translator-dummy.js')();
-translatorAdapter([dummyTranslator]).translate('shit', function (argument) {
+var youdao = require('./lib/translator-youdao.js')();
+translatorAdapter([youdao]).translate('fuck', function (err, body) {
     console.log('translate finished!');
+    console.log(body);
 });
