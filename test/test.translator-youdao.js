@@ -1,0 +1,75 @@
+'use strict';
+
+var assert = require('assert');
+var fs = require('fs');
+var request = require('request');
+var mock = require('sinon');
+var adapter = require('../lib/translator-adapter');
+var youdao = require('../lib/translator-youdao');
+
+// response templates
+var normalResponse = fs.readFileSync('test/youdao/normal.case');
+
+describe('translator-youdao', function () {
+  describe('#translate (normal case)', function () {
+    before(function () {
+      mock.stub(request, 'get').yields(null, { statusCode: 200 }, normalResponse);
+    });
+
+    after(function () {
+      request.get.restore();
+    });
+
+    it('response no error', function () {
+      adapter([youdao()]).translate('hello', function (err) {
+        assert.equal(err, null);
+      });
+    });
+
+    it('response has body', function () {
+      adapter([youdao()]).translate('hello', function (err, body) {
+        assert.notEqual(body, null);
+        assert.notEqual(body, undefined);
+      });
+    });
+
+    it('response has metadata', function () {
+      adapter([youdao()]).translate('hello', function (err, body) {
+        assert.ok(body.hasOwnProperty('metadata'));
+      });
+    });
+
+    it('response has basic definition', function () {
+      adapter([youdao()]).translate('hello', function (err, body) {
+        assert.ok(body.hasOwnProperty('basic'));
+        var basic = body.basic;
+        assert.ok(basic.hasOwnProperty('speech'), 'should contain speech');
+        assert.ok(basic.hasOwnProperty('phonetic'), 'should contain phonetic');
+        assert.ok(basic.hasOwnProperty('explains'), 'should contain explains');
+      });
+    });
+
+  });
+
+  describe('#translate (network error)', function () {
+    before(function () {
+      mock.stub(request, 'get').yields(new Error('network error'), { statusCode: 200 }, normalResponse);
+    });
+
+    after(function () {
+      request.get.restore();
+    });
+
+    it('should get error object when network error', function () {
+      adapter([youdao()]).translate('hello', function (err) {
+        assert.notEqual(err, null);
+      });
+    });
+
+    it('should get metadata when network error', function () {
+      adapter([youdao()]).translate('hello', function (err, body) {
+        assert.ok(body.hasOwnProperty('metadata'));
+      });
+    });
+  });
+});

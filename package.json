@@ -13,6 +13,6 @@
   },
   "devDependencies": {
     "mocha": "latest",
-    "proxyquire": ">1.6"
+    "sinon": "latest"
   }
 }

@@ -1,4 +1,5 @@
 'use strict';
+
 var assert = require('assert');
 var adapter = require('../lib/translator-adapter');
 var translatorStub = {
