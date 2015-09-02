@@ -72,4 +72,10 @@ describe('translator-youdao', function () {
       });
     });
   });
+
+  describe('#translator itself', function() {
+    it('every translator is the same', function() {
+      assert.equal(youdao(), youdao());
+    });
+  });
 });
