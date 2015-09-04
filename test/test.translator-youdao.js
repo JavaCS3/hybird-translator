@@ -53,7 +53,7 @@ describe('translator-youdao', function () {
 
   describe('#translate (network error)', function () {
     before(function () {
-      mock.stub(request, 'get').yields(new Error('network error'), { statusCode: 200 }, normalResponse);
+      mock.stub(request, 'get').yields(new Error('network error'), { statusCode: 200 }, null);
     });
 
     after(function () {

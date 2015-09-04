@@ -9,6 +9,7 @@ var bing = require('../lib/translator-bing');
 
 // response templates
 var normalResponse = fs.readFileSync('test/bing/normal.case');
+var normalResponse2 = fs.readFileSync('test/bing/normal2.case');
 
 describe('translator-bing', function () {
   describe('#translate (normal case)', function () {
@@ -53,7 +54,7 @@ describe('translator-bing', function () {
 
   describe('#translate (network error)', function () {
     before(function () {
-      mock.stub(request, 'get').yields(new Error('network error'), { statusCode: 200 }, normalResponse);
+      mock.stub(request, 'get').yields(new Error('network error'), { statusCode: 200 }, null);
     });
 
     after(function () {
