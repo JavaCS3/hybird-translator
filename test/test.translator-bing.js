@@ -47,6 +47,7 @@ describe('translator-bing', function () {
         assert.ok(basic.hasOwnProperty('speech'), 'should contain speech');
         assert.ok(basic.hasOwnProperty('phonetic'), 'should contain phonetic');
         assert.ok(basic.hasOwnProperty('explains'), 'should contain explains');
+        assert.ok(basic.explains.length > 0);
       });
     });
 
@@ -87,6 +88,7 @@ describe('translator-bing', function () {
         assert.ok(basic.hasOwnProperty('speech'), 'should contain speech');
         assert.ok(basic.hasOwnProperty('phonetic'), 'should contain phonetic');
         assert.ok(basic.hasOwnProperty('explains'), 'should contain explains');
+        assert.ok(basic.explains.length > 0);
       });
     });
 
@@ -114,8 +116,8 @@ describe('translator-bing', function () {
     });
   });
 
-  describe('#translator itself', function() {
-    it('every translator is the same', function() {
+  describe('#translator itself', function () {
+    it('every translator is the same', function () {
       assert.equal(bing(), bing());
     });
   });
