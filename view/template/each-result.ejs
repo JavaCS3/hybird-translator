@@ -1,0 +1,11 @@
+<!-- each-result -->
+<div>
+  <%= result.metadata.name %>
+  <p><%= result.basic.speech %></p>
+  <p><%= result.basic.phonetic %></p>
+  <ul>
+    <% result.basic.explains.forEach(function(explain){ %>
+    <li><%= explain %></li>
+    <% }); %>
+  </ul>
+</div>

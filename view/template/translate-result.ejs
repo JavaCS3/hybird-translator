@@ -1,0 +1,8 @@
+<!-- translate-result.ejs -->
+<ul>
+<% for(var model in result) { %>
+  <li>
+  <%- include('each-result', {result: result[model]}) %>
+  </li>
+<% } %>
+</ul>
