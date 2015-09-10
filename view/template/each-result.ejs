@@ -1,11 +1,17 @@
 <!-- each-result -->
 <div>
-  <%= result.metadata.name %>
-  <p><%= result.basic.speech %></p>
-  <p><%= result.basic.phonetic %></p>
-  <ul>
-    <% result.basic.explains.forEach(function(explain){ %>
-    <li><%= explain %></li>
-    <% }); %>
-  </ul>
+  <% var body = result.body %>
+  <% if (result.error) { %>
+    <%= body.metadata.name %>
+    <p>Translate Error: <%= result.error %></p>
+  <% } else { %>
+    <%= body.metadata.name %>
+    <p><%= body.basic.speech %></p>
+    <p><%= body.basic.phonetic %></p>
+    <ul>
+      <% body.basic.explains.forEach(function(explain){ %>
+      <li><%= explain %></li>
+      <% }); %>
+    </ul>
+  <% } %>
 </div>
