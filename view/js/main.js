@@ -1,5 +1,5 @@
 'use strict';
-window.$   = window.jQuery = require('./script/jquery-2.1.4.min.js');
+window.$   = window.jQuery = require('./js/jquery-2.1.4.min.js');
 var ejs    = require('ejs');
 var remote = require('remote');
 
