@@ -4,8 +4,8 @@ var assert = require('assert');
 var fs = require('fs');
 var request = require('request');
 var mock = require('sinon');
-var adapter = require('../lib/translator-adapter');
-var youdao = require('../lib/translator-youdao');
+var adapter = require('../../lib/translator-adapter');
+var youdao = require('../../lib/translator-youdao');
 
 // response templates
 var normalResponse = fs.readFileSync('test/youdao/normal.case');

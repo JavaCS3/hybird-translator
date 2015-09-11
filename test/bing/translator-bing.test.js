@@ -4,8 +4,8 @@ var assert = require('assert');
 var fs = require('fs');
 var request = require('request');
 var mock = require('sinon');
-var adapter = require('../lib/translator-adapter');
-var bing = require('../lib/translator-bing');
+var adapter = require('../../lib/translator-adapter');
+var bing = require('../../lib/translator-bing');
 
 // response templates
 var normalResponse = fs.readFileSync('test/bing/normal.case');
