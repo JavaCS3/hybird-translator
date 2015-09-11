@@ -3,16 +3,27 @@
   <head>
     <meta charset="UTF-8">
     <title>hybird-translator</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
   </head>
   <body>
-    <h1>Search</h1>
-    <form>
-      <input type="text" id="search-text">
-      <input type="submit" id="search-btn">
-    </form>
-
-    <div id="translate-result"></div>
-
+    <div class="container">
+      <h1>Translator</h1>
+      <form>
+        <div class="row">
+          <div class="col-lg-5">
+            <div class="input-group">
+              <input class="form-control" type="text" id="search-text">
+              <span class="input-group-btn">
+              <button class="btn btn-primary" type="submit" id="search-btn">Translate</button>
+              </span>
+            </div>
+          </div><!-- /.col-lg-5 -->
+        </div>
+      </form>
+      <!-- /form -->
+      <div id="translate-result" style="margin-top: 20px"></div>
+    </div>
     <script src="js/main.js"></script>
+    <script src="js/bootstrap.min.js"></script>
   </body>
 </html>

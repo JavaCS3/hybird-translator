@@ -1,11 +1,18 @@
 <!-- each-result -->
-<div>
-  <% var body = result.body %>
-  <% if (result.error) { %>
-    <%= body.metadata.name %>
-    <p>Translate Error: <%= result.error %></p>
-  <% } else { %>
-    <%= body.metadata.name %>
+<div class="panel panel-default">
+<% var body = result.body %>
+<% if (result.error) { %>
+  <div class="panel-heading">
+  <%= body.metadata.name %>
+  </div>
+  <div class="panel-body">
+    <p class="bg-danger">Translate Error: <%= result.error %></p>
+  </div>
+<% } else { %>
+  <div class="panel-heading">
+  <%= body.metadata.name %>
+  </div>
+  <div class="panel-body">
     <p><%= body.basic.speech %></p>
     <p><%= body.basic.phonetic %></p>
     <ul>
@@ -13,5 +20,6 @@
       <li><%= explain %></li>
       <% }); %>
     </ul>
-  <% } %>
+  </div>
+<% } %>
 </div>

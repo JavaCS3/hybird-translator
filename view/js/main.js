@@ -10,7 +10,7 @@ var template = ejs.compile("<%- include('template/translate-result') -%>", {
 $(function () {
   var translatorAdapter = remote.require('./lib/translator-adapter');
   var bing = remote.require('./lib/translator-bing');
-  // var youdao = remote.require('./lib/translator-youdao');
+  var youdao = remote.require('./lib/translator-youdao');
   var resultSet = {
     result: {}
   };
@@ -19,7 +19,7 @@ $(function () {
   $('#search-btn').click(function (e) {
     e.preventDefault();
     var word = $('#search-text').val();
-    translatorAdapter([bing()]).translate(word, function (err, body) {
+    translatorAdapter([bing(), youdao()]).translate(word, function (err, body) {
       resultSet.result[body.metadata.name] = {
         error: err,
         body: body
