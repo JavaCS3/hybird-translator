@@ -39,6 +39,12 @@ describe('translator-youdao', function () {
       });
     });
 
+    it('response has query', function () {
+      adapter([youdao()]).translate('hello', function (err, body) {
+        assert.ok(body.hasOwnProperty('query'));
+      });
+    });
+
     it('response has basic definition', function () {
       adapter([youdao()]).translate('hello', function (err, body) {
         assert.ok(body.hasOwnProperty('basic'));

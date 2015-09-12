@@ -41,6 +41,12 @@ describe('translator-bing', function () {
       });
     });
 
+    it('response has query', function () {
+      adapter([bing()]).translate('hello', function (err, body) {
+        assert.ok(body.hasOwnProperty('query'));
+      });
+    });
+
     it('response has basic definition', function () {
       adapter([bing()]).translate('hello', function (err, body) {
         assert.ok(body.hasOwnProperty('basic'));
@@ -82,6 +88,12 @@ describe('translator-bing', function () {
       });
     });
 
+    it('response has query', function () {
+      adapter([bing()]).translate('hello', function (err, body) {
+        assert.ok(body.hasOwnProperty('query'));
+      });
+    });
+
     it('response has basic definition', function () {
       adapter([bing()]).translate('hello', function (err, body) {
         assert.ok(body.hasOwnProperty('basic'));
@@ -120,6 +132,12 @@ describe('translator-bing', function () {
     it('response has metadata', function () {
       adapter([bing()]).translate('hello', function (err, body) {
         assert.ok(body.hasOwnProperty('metadata'));
+      });
+    });
+
+    it('response has query', function () {
+      adapter([bing()]).translate('hello', function (err, body) {
+        assert.ok(body.hasOwnProperty('query'));
       });
     });
 

@@ -1,25 +1,28 @@
 <!-- each-result -->
 <div class="panel panel-default">
-<% var body = result.body %>
-<% if (result.error) { %>
+  <% var body = result.body %>
+  <% if (result.error) { %>
   <div class="panel-heading">
-  <%= body.metadata.name %>
+    <%= body.metadata.name %>
   </div>
   <div class="panel-body">
-    <p class="bg-danger">Translate Error: <%= result.error %></p>
+    <div class="alert alert-danger" role="alert">
+      <span class="glyphicon glyphicon-alert" aria-hidden="true"></span>
+      Translate Error: <%= result.error %>
+    </div>
   </div>
-<% } else { %>
+  <% } else { %>
   <div class="panel-heading">
-  <%= body.metadata.name %>
+    <%= body.metadata.name %>
   </div>
   <div class="panel-body">
-    <p><%= body.basic.speech %></p>
-    <p><%= body.basic.phonetic %></p>
-    <ul>
-      <% body.basic.explains.forEach(function(explain){ %>
-      <li><%= explain %></li>
-      <% }); %>
-    </ul>
+    <h4><%= body.query %></h4>
+    <a class="nounderline" href="javascript: new Audio('<%= body.basic.speech %>').play()">[ <%= body.basic.phonetic %> ] <span class="glyphicon glyphicon-volume-up"></span></a>
   </div>
-<% } %>
+  <ul class="list-group">
+    <% body.basic.explains.forEach(function(explain){ %>
+    <li class="list-group-item"><%= explain %></li>
+    <% }); %>
+  </ul>
+  <% } %>
 </div>
