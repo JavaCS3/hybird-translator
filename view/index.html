@@ -9,6 +9,7 @@
   <body>
     <div class="container">
       <h1>Translator</h1>
+      <!-- search bar -->
       <form>
         <div class="row">
           <div class="col-lg-5">
@@ -18,16 +19,30 @@
               </div>
               <input class="form-control" type="text" id="search-text">
               <div class="input-group-btn">
-              <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-menu-hamburger"></span></button>
+                <button class="btn btn-default" type="button" data-toggle="modal" data-target=".bs-example-modal-sm"><span class="glyphicon glyphicon-cog"></span></button>
               </div>
             </div>
-          </div><!-- /.col-lg-5 -->
+            </div><!-- /.col-lg-5 -->
+          </div>
+        </form>
+        <!-- /form -->
+        <div id="translate-result" style="margin-top: 20px"></div>
+        <!-- settings modal -->
+        <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close">&times;</button>
+                <h4 class="modal-title"><span class="glyphicon glyphicon-cog"></span> Settings</h4>
+              </div>
+              <div class="modal-body">
+                <p>Under construction...</p>
+              </div>
+            </div>
+          </div>
         </div>
-      </form>
-      <!-- /form -->
-      <div id="translate-result" style="margin-top: 20px"></div>
-    </div>
-    <script src="js/main.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-  </body>
-</html>
+      </div>
+      <script src="js/main.js"></script>
+      <script src="js/bootstrap.min.js"></script>
+    </body>
+  </html>
