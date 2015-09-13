@@ -21,7 +21,7 @@
   </div>
   <ul class="list-group">
     <% body.basic.explains.forEach(function(explain){ %>
-    <li class="list-group-item"><%= explain %></li>
+    <li class="list-group-item"><%= decodeURI(explain) %></li>
     <% }); %>
   </ul>
   <% } %>
