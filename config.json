@@ -1,1 +1,7 @@
-{}
+{
+  "translators": [{
+    "name": "translator-bing"
+  }, {
+    "name": "translator-youdao"
+  }]
+}
