@@ -5,6 +5,11 @@ var adapter = require('../lib/translator-adapter');
 var translatorStub = {
   translate: function (word, callback) {
     callback(null, word);
+  },
+  metadata: function () {
+    return {
+      name: 'dummy'
+    };
   }
 };
 
