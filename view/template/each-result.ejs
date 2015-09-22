@@ -1,17 +1,17 @@
 <!-- each-result -->
 <div class="panel panel-default">
-  <% var body = result.body %>
+<% var body = result.body; %>
   <div class="panel-heading">
     <span class="glyphicon glyphicon-book"></span> <%= body.metadata.name %>
   </div>
-  <% if (result.error) { %>
+<% if (result.error) { %>
   <div class="panel-body">
     <div class="alert alert-danger" role="alert">
       <span class="glyphicon glyphicon-alert"></span>
       Translate Error: <%= result.error %>
     </div>
   </div>
-  <% } else { %>
+<% } else { %>
   <div class="panel-body">
     <h4><%= body.query %></h4>
     <a class="nounderline" href="javascript: new Audio('<%= body.basic.speech %>').play()">[ <%= body.basic.phonetic %> ] <span class="glyphicon glyphicon-volume-up"></span></a>
@@ -21,5 +21,5 @@
     <li class="list-group-item"><%= decodeURI(explain) %></li>
     <% }); %>
   </ul>
-  <% } %>
+<% } %>
 </div>

@@ -1,6 +1,8 @@
 <!-- translate-result.ejs -->
 <div>
-<% for(var model in result) { %>
-  <%- include('each-result', {result: result[model]}) %>
+<% for(var i = 0; i < result.length; i ++) { %>
+  <% if (result[i].error || result[i].body) { %>
+    <%- include('each-result', { result: result[i] }) %>
+  <% }  %>
 <% } %>
 </div>
