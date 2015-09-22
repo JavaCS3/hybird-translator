@@ -1,15 +1,13 @@
 <!-- each-result -->
-<div class="panel panel-default">
+<div class="panel <%= result.error ? 'panel-danger' : 'panel-primary' %>">
 <% var body = result.body; %>
-  <div class="panel-heading">
-    <span class="glyphicon glyphicon-book"></span> <%= body.metadata.name %>
+  <div class="panel-heading" style="padding: 2px 7px">
+    <%= body.metadata.name %>
   </div>
 <% if (result.error) { %>
-  <div class="panel-body">
-    <div class="alert alert-danger" role="alert">
-      <span class="glyphicon glyphicon-alert"></span>
-      Translate Error: <%= result.error %>
-    </div>
+  <div class="panel-body text-danger">
+    <span class="glyphicon glyphicon-alert"></span>
+    Translate Error: <%= result.error %>
   </div>
 <% } else { %>
   <div class="panel-body">

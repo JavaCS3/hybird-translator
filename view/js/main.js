@@ -53,8 +53,10 @@ $(function () {
   // on search event
   $('#search-btn').click(function (e) {
     e.preventDefault();
+
     var word = $('#search-text').val();
     result = new TranslateResult(translatorModules);
+
     translatorAdapter(translatorModules).translate(word, function (err, body) {
       result.setResult(body.metadata.name, err, body);
       $('#translate-result').html(template({ result: result.getResult() }));
